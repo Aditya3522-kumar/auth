@@ -1,0 +1,52 @@
+<% layout('layout/boilerplate') %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="mb-0">Login</h2>
+                </div>
+                <div class="card-body">
+                    <form action="/login" method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="/signup">Sign up</a></p>
+                        <p><a href="/forgot-password" class="text-primary">Forgot Password?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f4f4f4;
+    }
+    .card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .card-header {
+        background-color: #007bff !important;
+        border-radius: 1rem 1rem 0 0;
+        padding: 1rem;
+    }
+    .btn {
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+    }
+</style>

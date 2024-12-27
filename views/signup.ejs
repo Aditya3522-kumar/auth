@@ -1,0 +1,97 @@
+<% layout('layout/boilerplate') %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="mb-0">Sign Up</h2>
+                </div>
+                <div class="card-body">
+                    <% if (error) { %>
+                        <div class="alert alert-danger"><%= error %></div>
+                    <% } %>
+                    
+                    <form action="/signup" method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input 
+                                type="email" 
+                                class="form-control" 
+                                id="email" 
+                                name="email" 
+                                placeholder="Enter your email" 
+                                required
+                            >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input 
+                                type="password" 
+                                class="form-control" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Enter password" 
+                                required
+                            >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password2" class="form-label">Confirm Password</label>
+                            <input 
+                                type="password" 
+                                class="form-control" 
+                                id="password2" 
+                                name="password2" 
+                                placeholder="Confirm password" 
+                                required
+                            >
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="/login">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Client-side password validation
+    document.querySelector('form').addEventListener('submit', function(e) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('password2').value;
+
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            alert('Passwords do not match!');
+        }
+    });
+</script>
+
+<style>
+    body {
+        background-color: #f4f4f4;
+    }
+    .card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .card-header {
+        background-color: #007bff !important;
+        border-radius: 1rem 1rem 0 0;
+        padding: 1rem;
+    }
+    .btn {
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+    }
+</style>
